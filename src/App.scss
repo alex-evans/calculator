@@ -1,0 +1,67 @@
+
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+
+  > header, > footer {
+    background-color: #4C5355;
+    color: white;
+    min-height: 50px;
+  }
+
+  > header {
+    grid-area: header;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  > main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      '. display .'
+      '. drum-pads .';
+
+      > #display-box {
+        grid-area: display;
+        background-color: lime;
+        display: grid;
+        align-items: center;
+
+        > #display {
+          text-align: center;
+        }
+      }
+
+      > #drum-pads-box {
+        grid-area: drum-pads;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        background-color: yellow;
+
+          > .drum-pad {
+            background-color: blue;
+
+            > button {
+              height: 100%;
+              width: 100%;
+            }
+          }
+      }
+  }
+
+  > footer {
+    grid-area: footer;
+  }
+}

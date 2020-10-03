@@ -1,4 +1,4 @@
 // import { combineReducers } from "redux";
-import drums from "./drums";
+import calculator from "./calculator";
 
-export default drums;
+export default calculator;

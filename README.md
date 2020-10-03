@@ -1,5 +1,5 @@
-# drum_machine
-FCC project Drum Machine
+# calculator
+Freecodecamp - Javascript Calculator project
 
 ## User Stories
 1. My calculator should contain a clickable element containing an `=` (equal sign) with a corresponding `id="equals"`.

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addPressed } from "../redux/actions";
 
 class CalcButton extends React.Component {
     constructor(props) {
@@ -8,13 +9,13 @@ class CalcButton extends React.Component {
     }
 
     handleButtonClick(event) {
-
+        this.props.addPressed(event.target.value)
     }
 
     render() {
         return (
             <div className="calc-button" id={this.props.buttonId}>
-                <button onClick={this.handleButtonClick} value={this.props.sign}>{this.props.sign}</button>
+                <button onClick={this.handleButtonClick} value={this.props.symbol}>{this.props.symbol}</button>
             </div>
         )
     }
@@ -24,4 +25,4 @@ const mapStateToProps = state => {
     return state
 }
 
-export default connect(mapStateToProps, null)(CalcButton)
+export default connect(mapStateToProps, { addPressed })(CalcButton)

@@ -38,7 +38,7 @@
       background-color: black;
       display: grid;
       grid-template-columns: 1fr 50fr 1fr;
-      grid-template-rows: 2% 10% auto 2%;
+      grid-template-rows: 2% 15% auto 2%;
       grid-template-areas:
         '. . .'
         '. display-box .'
@@ -49,15 +49,28 @@
           grid-area: display-box;
           background-color: #2F2440;
           display: grid;
-          align-items: center;
+          padding: 10px;
           border-radius: 10px 10px 0 0;
-          padding: 5px;
+          grid-template-columns: auto;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            'input'
+            'display';
+
+            > #display-formula {
+              grid-area: input;
+              background-color: #E0D8BE;
+              text-align: right;
+              border-radius: 10px 10px 0 0;
+              padding: 5px;
+            }
 
             > #display {
+              grid-area: display;
               font-size: large;
-              background-color: #C6B79B;
+              background-color: #E0D8BE;
               text-align: right;
-              border-radius: 10px;
+              border-radius: 0 0 10px 10px;
               padding: 5px;
             }
         }
@@ -69,7 +82,7 @@
           grid-template-rows: auto;
           background-color: #2F2440;
 
-            > #all-clear {
+            > #clear {
               grid-column-start: 1;
               grid-column-end: 3;
 
@@ -82,7 +95,7 @@
               background-color: #E0D8BE;
             }
 
-            > #mult button {
+            > #multiply button {
               background-color: #E0D8BE;
             }
 
@@ -90,7 +103,7 @@
               background-color: #E0D8BE;
             }
 
-            > #plus button {
+            > #add button {
               background-color: #E0D8BE;
             }
 

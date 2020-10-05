@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addPressed } from "../redux/actions";
+import { opperatorPressed, numberPressed, acPressed, decPressed, equalPressed } from "../redux/actions";
+
+const opperatorButton = /^[+\-x\/]/i;
+const numberButton = /\d/;
 
 class CalcButton extends React.Component {
     constructor(props) {
@@ -9,7 +12,17 @@ class CalcButton extends React.Component {
     }
 
     handleButtonClick(event) {
-        this.props.addPressed(event.target.value)
+        if (opperatorButton.test(event.target.value)) {
+            this.props.opperatorPressed(event.target.value)
+        } else if (numberButton.test(event.target.value)) {
+            this.props.numberPressed(event.target.value)
+        } else if (event.target.value === 'AC') {
+            this.props.acPressed(event.target.value)
+        } else if (event.target.value === '=') {
+            this.props.equalPressed(event.target.value)
+        } else if (event.target.value === '.') {
+            this.props.decPressed(event.target.value)
+        }
     }
 
     render() {
@@ -25,4 +38,4 @@ const mapStateToProps = state => {
     return state
 }
 
-export default connect(mapStateToProps, { addPressed })(CalcButton)
+export default connect(mapStateToProps, { opperatorPressed, numberPressed, acPressed, decPressed, equalPressed })(CalcButton)

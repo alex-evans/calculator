@@ -26,13 +26,21 @@ export default function(state = initialState, action) {
     switch (action.type) {
         
         case OPERATOR_PRESSED: {
-            if ((state.value === '0') && (action.buttonId === '-')) {
+            if (state.inputString === '' && state.value !== '0') {
+                let oldValueWithNewOperator = state.value + ' ' + action.buttonId;
+                return {
+                    value: action.buttonId,
+                    inputString: oldValueWithNewOperator
+                }
+            }
+
+            if ((state.inputString === '') && (action.buttonId === '-')) {
                 return {
                     value: action.buttonId,
                     inputString: '-'
                 }
             }
-            if (state.value === '0') {
+            if (state.inputString === '') {
                 return {
                     ...state,
                     value: action.buttonId
@@ -54,13 +62,6 @@ export default function(state = initialState, action) {
                 return {
                     ...state,
                     value: action.buttonId
-                }
-            }
-            if (state.value !== '0') {
-                const oldValueAndNewOp = state.value + ' ' + action.buttonId
-                return {
-                    value: action.buttonId,
-                    inputString: oldValueAndNewOp 
                 }
             }
             return {

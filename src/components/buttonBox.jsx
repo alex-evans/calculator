@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import CalcButton from "./calcButton";
 
 class ButtonBox extends React.Component {
@@ -20,7 +19,7 @@ class ButtonBox extends React.Component {
                 <CalcButton buttonId="one" symbol="1" />
                 <CalcButton buttonId="two" symbol="2" />
                 <CalcButton buttonId="three" symbol="3" />
-                <CalcButton buttonId="equal" symbol="=" />
+                <CalcButton buttonId="equals" symbol="=" />
                 <CalcButton buttonId="zero" symbol="0" />
                 <CalcButton buttonId="decimal" symbol="." />
             </div>

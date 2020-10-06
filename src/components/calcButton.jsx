@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { opperatorPressed, numberPressed, acPressed, decPressed, equalPressed } from "../redux/actions";
 
-const opperatorButton = /^[+\-x\/]/i;
+const opperatorButton = /^[+\-x/]/i;
 const numberButton = /\d/;
 
 class CalcButton extends React.Component {
